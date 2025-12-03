@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ASWEDAA — السوداء | Suwaida Meme Coin</title>
+  <style>
+    :root{--accent:#0f766e;--accent-dark:#0b5c51;--bg:#0f172a;--card:#081126;--muted:#94a3b8;--glass: rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:linear-gradient(180deg,#071129 0%, #061024 60%);color:#e6eef8}
+    .wrap{max-width:1000px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#111827,#2b2b2b);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+    h1{margin:0;font-size:20px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .lang-switch{display:flex;gap:8px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+    main{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:22px}
+    .card{background:var(--card);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .hero{padding:20px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .feature{background:var(--glass);padding:10px;border-radius:10px;font-size:14px}
+
+    .side{position:sticky;top:28px}
+    .price{font-size:14px;color:var(--muted)}
+    .buy-actions{display:flex;gap:8px;margin-top:12px}
+    a.buy-link{text-decoration:none}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){main{grid-template-columns:1fr} .side{position:relative;top:auto}}
+
+    /* arabic support */
+    .rtl{direction:rtl;text-align:right}
+    .muted{color:var(--muted)}
+
+    /* copy toast */
+    .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#0b1220;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);display:none}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">AS</div>
+        <div>
+          <h1 id="title">ASWEDAA — السوداء</h1>
+          <p class="lead" id="subtitle">Community-driven meme coin from Suwaida · عملة ميم من السويداء</p>
+        </div>
+      </div>
+      <div class="lang-switch">
+        <button class="btn" id="enBtn">English</button>
+        <button class="btn ghost" id="arBtn">العربية</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="card hero" id="hero">
+          <h2 id="heroTitle">Join ASWEDAA — From Suwaida to the world</h2>
+          <p class="muted" id="heroText">ASWEDAA is a community-led meme coin celebrating local pride, youth, and the spirit of Suwaida. Buy a small amount, join the movement, share the memes, and help the coin grow.</p>
+
+          <div class="features" style="margin-top:16px">
+            <div class="feature" id="f1"><strong>Community First</strong><br><span class="muted">No centralized team · المجتمع أولاً · لا فريق مركزي</span></div>
+            <div class="feature" id="f2"><strong>Low Entry</strong><br><span class="muted">Buy for pennies — start small and join the trend</span></div>
+            <div class="feature" id="f3"><strong>Transparent</strong><br><span class="muted">View contract and bonding curve on pump.fun</span></div>
+            <div class="feature" id="f4"><strong>Support Local</strong><br><span class="muted">Help spread awareness for Suwaida youth initiatives</span></div>
+          </div>
+
+          <hr style="margin:18px 0;border-color:rgba(255,255,255,0.03)">
+
+          <h3 id="howTitle">How to buy — كيف تشتري</h3>
+          <ol id="howList">
+            <li>Click the Buy link on the right → اضغط زر الشراء على اليمين</li>
+            <li>Connect your Solana wallet (Phantom, Solflare…)</li>
+            <li>Purchase any small amount (0.5$ recommended) — اشترِ مبلغ صغير لبدء الضجة</li>
+          </ol>
+
+          <div style="margin-top:14px;font-size:14px" id="discountText">
+            <strong>Discounts for larger amounts — خصومات للكميات الأكبر</strong>
+            <p class="muted" style="margin:8px 0">If you want bulk pricing or a group buy, contact us on Telegram: <a href="https://t.me/RASHKINAE" target="_blank" id="tgLink">@RASHKINAE</a>. / إذا بدك كمية بسعر أقل تواصل عبر تيليجرام.</p>
+          </div>
+
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3 id="aboutTitle">About the project — عن المشروع</h3>
+          <p class="muted" id="aboutText">ASWEDAA is intended to be a fun, grassroots meme coin that highlights Suwaida's identity. We focus on community, social content, and small, safe participation from supporters. No financial promises.</p>
+
+          <h4 style="margin-top:12px">Contact — تواصل</h4>
+          <p class="muted">Telegram: <a href="https://t.me/RASHKINAE" target="_blank">@RASHKINAE</a></p>
+        </div>
+
+      </section>
+
+      <aside class="side">
+        <div class="card">
+          <div class="price">Current (theoretical) Price</div>
+          <div style="font-size:18px;margin-top:6px" id="priceVal">$0.00000398</div>
+          <div class="buy-actions">
+            <a class="buy-link" id="buyBtn" href="https://pump.fun/coin/6dPtDAnoAiU58g5kPd6Yj48AxqUR7CVrhSLKuVAufGtD" target="_blank"><button class="btn">Buy on pump.fun</button></a>
+            <button class="btn ghost" id="copyLink">Copy Buy Link</button>
+          </div>
+
+          <div style="margin-top:12px">
+            <button class="btn" id="tgBtn">Contact on Telegram</button>
+          </div>
+
+          <hr style="margin:12px 0;border-color:rgba(255,255,255,0.03)">
+
+          <div>
+            <strong>Quick FAQ</strong>
+            <p class="muted" style="font-size:14px">Q: Why buy small? / ليش اشتري مبلغ صغير؟<br>A: Small buys create interest without big risk. / لاختر تجريبية وبمخاطرة قليلة.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h4>Share</h4>
+          <p class="muted">Spread the word: post memes, tag friends, and invite people to buy a tiny amount.</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn ghost" id="shareX">Share X</button>
+            <button class="btn ghost" id="shareCopy">Copy Message</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="muted">Built for ASWEDAA — Not financial advice. This project is a community meme coin. لا نصيحة استثمارية.</div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast">Link copied to clipboard</div>
+
+  <script>
+    const enBtn = document.getElementById('enBtn');
+    const arBtn = document.getElementById('arBtn');
+    const title = document.getElementById('title');
+    const subtitle = document.getElementById('subtitle');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroText = document.getElementById('heroText');
+    const howTitle = document.getElementById('howTitle');
+    const howList = document.getElementById('howList');
+    const discountText = document.getElementById('discountText');
+    const aboutTitle = document.getElementById('aboutTitle');
+    const aboutText = document.getElementById('aboutText');
+    const tgBtn = document.getElementById('tgBtn');
+    const tgLink = document.getElementById('tgLink');
+    const buyBtn = document.getElementById('buyBtn');
+    const copyLink = document.getElementById('copyLink');
+    const toast = document.getElementById('toast');
+    const shareX = document.getElementById('shareX');
+    const shareCopy = document.getElementById('shareCopy');
+
+    const BUY_URL = 'https://pump.fun/coin/6dPtDAnoAiU58g5kPd6Yj48AxqUR7CVrhSLKuVAufGtD';
+    const TG_URL = 'https://t.me/RASHKINAE';
+
+    function showToast(msg){toast.textContent = msg; toast.style.display='block'; setTimeout(()=>toast.style.display='none',2000)}
+
+    enBtn.addEventListener('click',()=>{
+      document.documentElement.lang='en'; document.body.classList.remove('rtl');
+      title.textContent = 'ASWEDAA — Al-Swedaa';
+      subtitle.textContent = 'Community-driven meme coin from Suwaida · عملة ميم من السويداء';
+      heroTitle.textContent = 'Join ASWEDAA — From Suwaida to the world';
+      heroText.textContent = 'ASWEDAA is a community-led meme coin celebrating local pride, youth, and the spirit of Suwaida. Buy a small amount, join the movement, share the memes, and help the coin grow.';
+      howTitle.textContent = 'How to buy — كيف تشتري';
+      howList.innerHTML = '<li>Click the Buy link on the right</li><li>Connect your Solana wallet (Phantom, Solflare…)</li><li>Purchase any small amount (0.5$ recommended)</li>';
+      discountText.querySelector('strong').textContent='Discounts for larger amounts — خصومات للكميات الأكبر';
+      discountText.querySelector('p').innerHTML = 'If you want bulk pricing or a group buy, contact us on Telegram: <a href="https://t.me/RASHKINAE" target="_blank">@RASHKINAE</a>.';
+      aboutTitle.textContent='About the project — عن المشروع';
+      aboutText.textContent='ASWEDAA is intended to be a fun, grassroots meme coin that highlights Suwaida\'s identity. We focus on community, social content, and small, safe participation from supporters. No financial promises.';
+    })
+
+    arBtn.addEventListener('click',()=>{
+      document.documentElement.lang='ar'; document.body.classList.add('rtl');
+      title.textContent = 'السوداء — ASWEDAA';
+      subtitle.textContent = 'مشروع عملة ميم من السويداء يقوده المجتمع المحلي';
+      heroTitle.textContent = 'انضموا إلى السوداء — من السويداء إلى العالم';
+      heroText.textContent = 'السوداء عملة ميم يقودها المجتمع، تحتفل بالهوية المحلية وروح الشباب. اشترِ كمية صغيرة، انضم للحركة، وشارك الميمات لدعم العملة.';
+      howTitle.textContent = 'كيف تشتري — How to buy';
+      howList.innerHTML = '<li>اضغط زر الشراء على اليمين</li><li>وصل محفظتك على سولانا (Phantom, Solflare…)</li><li>اشترِ مبلغ صغير (0.5$ موصى به)</li>';
+      discountText.querySelector('strong').textContent='خصومات للكميات الأكبر — Discounts for larger amounts';
+      discountText.querySelector('p').innerHTML = 'إذا بدك كمية بسعر أقل تواصل عبر تيليجرام: <a href="https://t.me/RASHKINAE" target="_blank">@RASHKINAE</a>.';
+      aboutTitle.textContent='عن المشروع — About the project';
+      aboutText.textContent='السوداء تهدف لتكون عملة ميم ممتعة وجماهيرية تبرز هوية السويداء. نركز على المجتمع والمحتوى الاجتماعي والمشاركة الصغيرة الآمنة. لا وعود استثمارية.';
+    })
+
+    copyLink.addEventListener('click',()=>{
+      navigator.clipboard.writeText(BUY_URL).then(()=>showToast('Buy link copied'));
+    })
+
+    tgBtn.addEventListener('click',()=>{ window.open(TG_URL,'_blank'); })
+    tgLink.addEventListener('click',()=>{})
+
+    shareX.addEventListener('click',()=>{
+      const txt = 'Join ASWEDAA — community meme coin from Suwaida. Buy tiny amount: '+BUY_URL;
+      if(navigator.share){ navigator.share({title:'ASWEDAA',text:txt,url:BUY_URL}).catch(()=>showToast('Share cancelled')) }
+      else{ window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank') }
+    })
+
+    shareCopy.addEventListener('click',()=>{ const txt = 'Join ASWEDAA — community meme coin from Suwaida. Buy tiny amount: '+BUY_URL; navigator.clipboard.writeText(txt).then(()=>showToast('Message copied')) })
+
+    // initial language default to Arabic view
+    arBtn.click();
+  </script>
+</body>
+</html>

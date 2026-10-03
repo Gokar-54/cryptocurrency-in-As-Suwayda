@@ -29,7 +29,7 @@ footer{border-top:1px solid #ffffff12;padding:25px 0;color:#8993a8;font-size:12p
 <div class="card"><div class="emoji">🎨</div><h3>صور وتصميم</h3><p>أدوات لإنشاء الصور والتصميم والمحتوى المرئي.</p><ul><li>تصميم</li><li>صور AI</li><li>فيديو ومحتوى</li></ul></div>
 <div class="card"><div class="emoji">🎙️</div><h3>صوت وفيديو</h3><p>خدمات وأدوات للصوت والفيديو والمنتاج بالذكاء الاصطناعي.</p><ul><li>تحويل النص لصوت</li><li>فيديو AI</li><li>مونتاج</li></ul></div>
 </div>
-<div class="note">⚠️ الاشتراكات متاحه 24 ساعه.</div>
+<div class="note">⚠️ الاشتراكات الرقمية يجب أن تكون من مصدر مصرح به وبحسب شروط كل خدمة. مدة الاشتراك والسعر النهائي يُؤكّدان قبل الدفع.</div>
 </div></section>
 
 <section id="boost-info"><div class="w">
@@ -42,7 +42,7 @@ footer{border-top:1px solid #ffffff12;padding:25px 0;color:#8993a8;font-size:12p
 <div class="card"><div class="emoji">🔵</div><h3>Facebook</h3><p>تعزيز المتابعين والتفاعل حسب الخدمة.</p><ul><li>صفحة أو منشور</li><li>باقات متعددة</li><li>متابعة الطلب</li></ul></div>
 <div class="card"><div class="emoji">𝕏</div><h3>X / Threads</h3><p>خدمات تعزيز للحسابات والمنشورات.</p><ul><li>اختيار المنصة</li><li>كمية حسب الطلب</li><li>دعم Telegram</li></ul></div>
 </div>
-<div class="note">ℹ️ النتائج والكميات والسرعة تختلف حسب المنصة والخدمة. لا نطلب كلمة مرور الحساب، و نضمن نتائج ثابتة عندما تكون الخدمة خاضعة لسياسات أو تغييرات المنصة.</div>
+<div class="note">ℹ️ النتائج والكميات والسرعة تختلف حسب المنصة والخدمة. لا نطلب كلمة مرور الحساب، ولا نضمن نتائج ثابتة عندما تكون الخدمة خاضعة لسياسات أو تغييرات المنصة.</div>
 </div></section>
 
 <section id="platforms"><div class="w"><div class="head"><h2>باقات منصات السوشيال</h2><p>اختر المنصة ثم الباقة المناسبة. الكميات والأسعار قابلة للتعديل.</p></div><div class="services">
@@ -105,24 +105,49 @@ function render(c="all"){document.getElementById("products").innerHTML=P.filter(
 function add(id){let x=P.find(a=>a[0]==id),q=cart.find(a=>a[0]==id);q?q[5]++:cart.push([...x,1]);renderCart();document.getElementById("order").scrollIntoView({behavior:"smooth"})}
 function renderCart(){let e=document.getElementById("cart");if(!cart.length){e.innerHTML='<p style="color:#9fa9bc;text-align:center">السلة فارغة.</p>';document.getElementById("total").textContent="$0.00";return}e.innerHTML=cart.map((x,i)=>`<div class="row"><span>${x[2]} × ${x[5]}</span><button class="del" onclick="del(${i})">حذف</button></div>`).join("");document.getElementById("total").textContent=money(cart.reduce((s,x)=>s+x[3]*x[5],0))}
 function del(i){cart.splice(i,1);renderCart()}function clearCart(){cart=[];renderCart()}
+const SERVICE_PRICES={
+ 'إعلانات ممولة':10,
+ 'تعزيز السوشيال':10,
+ 'اشتراكات الذكاء الاصطناعي':9.99,
+ 'تصميم رقمي':5,
+ 'Instagram':10,
+ 'TikTok':10,
+ 'YouTube':10,
+ 'Telegram':8,
+ 'Facebook':10,
+ 'X / Threads':8,
+ 'Multi-Social':20
+};
+
 function serviceToOrder(btn){
-let card=btn.closest('.card');
-let title=card?card.querySelector('h3')?.textContent.trim():'خدمة';
-document.getElementById('notes').value='الخدمة المطلوبة: '+title;
-document.getElementById('account').focus();
-document.getElementById('order').scrollIntoView({behavior:'smooth'});
+ let card=btn.closest('.card');
+ let title=card?card.querySelector('h3')?.textContent.trim():'خدمة';
+ let price=Number(btn.dataset.price||0);
+ let emoji=card?.querySelector('.emoji')?.textContent.trim()||'🛒';
+ let existing=cart.find(x=>x[0]===('service-'+title));
+ if(existing){existing[5]++;}
+ else{cart.push(['service-'+title,'service',title,price,emoji,1]);}
+ document.getElementById('notes').value='الخدمة المطلوبة: '+title;
+ renderCart();
+ document.getElementById('order').scrollIntoView({behavior:'smooth'});
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
  document.querySelectorAll('.services .card').forEach(card=>{
-   if(!card.querySelector('.service-btn')){
-     let b=document.createElement('button');
-     b.className='service-btn';
-     b.type='button';
-     b.textContent='🛒 اطلب هذه الخدمة';
-     b.onclick=()=>serviceToOrder(b);
-     card.appendChild(b);
-   }
+   if(card.querySelector('.service-btn')) return;
+   let title=card.querySelector('h3')?.textContent.trim()||'خدمة';
+   let price=SERVICE_PRICES[title] ?? 5;
+   let priceEl=document.createElement('div');
+   priceEl.className='price';
+   priceEl.textContent=price?'$'+price.toFixed(2):'حسب الطلب';
+   card.appendChild(priceEl);
+   let b=document.createElement('button');
+   b.className='service-btn';
+   b.type='button';
+   b.dataset.price=price;
+   b.textContent=price?'🛒 اطلب هذه الخدمة — $'+price.toFixed(2):'🛒 اطلب هذه الخدمة';
+   b.onclick=()=>serviceToOrder(b);
+   card.appendChild(b);
  });
 });
 
